@@ -1601,39 +1601,42 @@ document.getElementById("checkoutForm").addEventListener("submit", async functio
         paymentMethod: paymentMethod === "Card Payment" ? "CARD" : "COD"
     };
 
-    try {
-        const response = await fetch("http://172.27.224.1:5000/api/orders/cod",  {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(orderData)
-        });
+    // Vercel/mobile version: create order locally without backend
+    const orderId = "LW-" + Date.now();
 
-        const data = await response.json();
-        console.log(data);
+    const order = {
+        orderId: orderId,
+        customerName: customerName,
+        email: customerEmail,
+        phone: customerPhone,
+        address: customerAddress,
+        items: [...cart],
+        totalAmount: total,
+        paymentMethod: paymentMethod === "Card Payment" ? "CARD" : "COD",
+        paymentStatus: paymentMethod === "Card Payment" ? "Paid Demo" : "Pending COD",
+        createdAt: new Date().toLocaleString()
+    };
 
-        cart.length = 0;
-        updateCart();
+    localStorage.setItem("lastOrder", JSON.stringify(order));
 
-        const success = document.getElementById("orderSuccess");
-        success.style.display = "block";
-        success.innerHTML = "✅ Order created successfully! Thank you for shopping with LuxeWatch.";
+    cart.length = 0;
+    updateCart();
 
-        setTimeout(() => {
-            document.getElementById("checkoutModal").classList.remove("active");
-            document.getElementById("cartPanel").classList.remove("active");
-            success.style.display = "none";
-            this.reset();
-            document.getElementById("cardFields").classList.remove("active");
-            document.getElementById("paymentMethod").value = "Cash on Delivery";
-            document.querySelectorAll(".payment-option").forEach(item => item.classList.remove("active"));
-            document.querySelector('.payment-option[data-payment="Cash on Delivery"]').classList.add("active");
-            alert("Order created successfully!");
-        }, 1500);
+    const success = document.getElementById("orderSuccess");
+    success.style.display = "block";
+    success.innerHTML = "✅ Order created successfully! Your Order ID is " + orderId;
 
-    } catch (error) {
-        console.log(error);
-        alert("Backend connection failed. Please make sure Python backend is running.");
-    }
+    setTimeout(() => {
+        document.getElementById("checkoutModal").classList.remove("active");
+        document.getElementById("cartPanel").classList.remove("active");
+        success.style.display = "none";
+        this.reset();
+        document.getElementById("cardFields").classList.remove("active");
+        document.getElementById("paymentMethod").value = "Cash on Delivery";
+        document.querySelectorAll(".payment-option").forEach(item => item.classList.remove("active"));
+        document.querySelector('.payment-option[data-payment="Cash on Delivery"]').classList.add("active");
+        alert("Order created successfully! Order ID: " + orderId);
+    }, 1500);
 });
 
 document.getElementById("newsletterForm").addEventListener("submit", function(e) {
