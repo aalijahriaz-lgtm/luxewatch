@@ -1,0 +1,1726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LuxeWatch - Premium Watch Store</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#0d0d0d;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* NAVBAR */
+
+nav{
+    width:100%;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:fixed;
+    top:0;
+    z-index:1000;
+    background:rgba(0,0,0,0.7);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+.logo span{
+    color:#9b9b9b;
+}
+
+nav ul{
+    display:flex;
+    gap:35px;
+    list-style:none;
+}
+
+nav ul li a{
+    color:#d1d1d1;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#fff;
+}
+
+.btn{
+    padding:12px 26px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(135deg,#2e2e2e,#5e5e5e);
+    color:#fff;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.4s;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 0 20px rgba(255,255,255,0.15);
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:120px 8%;
+    background:
+    radial-gradient(circle at top right, rgba(255,255,255,0.08), transparent 30%),
+    radial-gradient(circle at bottom left, rgba(255,255,255,0.05), transparent 25%),
+    #0d0d0d;
+}
+
+.hero-text{
+    max-width:550px;
+}
+
+.hero-text h1{
+    font-size:72px;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.hero-text p{
+    color:#bdbdbd;
+    line-height:1.8;
+    margin-bottom:35px;
+}
+
+.hero-image img{
+    width:520px;
+    border-radius:20px;
+    animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-15px);
+    }
+}
+
+/* STATS */
+
+.stats{
+    padding:80px 8%;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:25px;
+    background:#111;
+}
+
+.stat-box{
+    background:#1a1a1a;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+}
+
+.stat-box h2{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+/* COMMON */
+
+.section-title{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.section-title h2{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:#a0a0a0;
+}
+
+/* COLLECTIONS */
+
+.collections{
+    padding:100px 8%;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:linear-gradient(145deg,#151515,#222);
+    border-radius:25px;
+    padding:30px;
+    position:relative;
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card img{
+    width:100%;
+    height:280px;
+    object-fit:cover;
+    border-radius:15px;
+    margin-bottom:20px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#b5b5b5;
+    margin-bottom:20px;
+}
+
+.price{
+    font-size:24px;
+    font-weight:700;
+}
+
+.badge{
+    position:absolute;
+    top:20px;
+    left:20px;
+    background:#5e5e5e;
+    padding:8px 14px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:600;
+}
+
+/* FEATURES */
+
+.features{
+    padding:100px 8%;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.feature-box{
+    background:#181818;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+}
+
+.feature-box h3{
+    margin-bottom:15px;
+}
+
+.feature-box p{
+    color:#9f9f9f;
+    line-height:1.7;
+}
+
+/* DISCOUNT */
+
+.discount-section{
+    margin:100px 8%;
+    padding:120px 60px;
+    text-align:center;
+    border-radius:30px;
+    background:
+    linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
+    url('https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=1200&auto=format&fit=crop');
+    background-size:cover;
+    background-position:center;
+}
+
+.discount-content h1{
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+.discount-content p{
+    max-width:700px;
+    margin:auto;
+    line-height:1.8;
+    color:#d0d0d0;
+    margin-bottom:30px;
+}
+
+/* BRANDS */
+
+.brands{
+    padding:100px 8%;
+}
+
+.brand-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+}
+
+.brand-box{
+    background:#1a1a1a;
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+    font-weight:700;
+    letter-spacing:2px;
+    transition:0.4s;
+}
+
+.brand-box:hover{
+    background:#292929;
+    transform:translateY(-8px);
+}
+
+/* REVIEWS */
+
+.reviews{
+    padding:100px 8%;
+    background:#111;
+}
+
+.review-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.review-card{
+    background:#1b1b1b;
+    padding:35px;
+    border-radius:20px;
+}
+
+.review-card p{
+    color:#b5b5b5;
+    line-height:1.8;
+    margin:15px 0;
+}
+
+/* FAQ */
+
+.faq{
+    padding:100px 8%;
+}
+
+.faq-container{
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+
+.faq-box{
+    background:#1a1a1a;
+    padding:30px;
+    border-radius:20px;
+}
+
+.faq-box h3{
+    margin-bottom:10px;
+}
+
+.faq-box p{
+    color:#aaa;
+}
+
+/* NEWSLETTER */
+
+.newsletter{
+    margin:100px 8%;
+    background:linear-gradient(135deg,#1d1d1d,#2f2f2f);
+    border-radius:30px;
+    padding:70px;
+    text-align:center;
+}
+
+.newsletter h2{
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.newsletter p{
+    color:#c2c2c2;
+    margin-bottom:30px;
+}
+
+.newsletter form{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.newsletter input{
+    width:350px;
+    padding:15px 20px;
+    border:none;
+    border-radius:30px;
+    background:#111;
+    color:#fff;
+    outline:none;
+}
+
+/* FOOTER */
+
+footer{
+    padding:40px 8%;
+    text-align:center;
+    color:#8a8a8a;
+    border-top:1px solid rgba(255,255,255,0.05);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:980px){
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .hero-text h1{
+        font-size:52px;
+    }
+
+    nav ul{
+        display:none;
+    }
+
+    .hero-image img{
+        width:100%;
+        max-width:420px;
+        margin-top:50px;
+    }
+}
+
+@media(max-width:768px){
+
+    .discount-content h1{
+        font-size:40px;
+    }
+}
+
+@media(max-width:600px){
+
+    .hero-text h1{
+        font-size:42px;
+    }
+
+    .newsletter{
+        padding:40px 20px;
+    }
+}
+
+
+/* EXTRA FEATURES */
+
+.card .btn{
+    margin-top:18px;
+}
+
+.cart-button{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    z-index:2000;
+    padding:14px 22px;
+    border-radius:35px;
+    border:none;
+    background:#fff;
+    color:#111;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+.cart-panel{
+    position:fixed;
+    top:0;
+    right:-420px;
+    width:380px;
+    max-width:95%;
+    height:100vh;
+    background:#151515;
+    z-index:3000;
+    padding:30px;
+    transition:0.4s;
+    overflow-y:auto;
+    box-shadow:-10px 0 30px rgba(0,0,0,0.5);
+}
+
+.cart-panel.active{
+    right:0;
+}
+
+.close-cart{
+    float:right;
+    background:#333;
+    color:#fff;
+    border:none;
+    padding:8px 13px;
+    border-radius:50%;
+    cursor:pointer;
+}
+
+.cart-item{
+    background:#222;
+    padding:15px;
+    border-radius:15px;
+    margin-bottom:15px;
+}
+
+.cart-total{
+    font-size:22px;
+    font-weight:700;
+    margin:25px 0;
+}
+
+.brand-box{
+    cursor:pointer;
+}
+
+.brand-box.active{
+    background:#3a3a3a;
+    transform:translateY(-8px);
+}
+
+.brand-products-section{
+    padding:80px 8%;
+    background:#0d0d0d;
+    display:none;
+}
+
+.brand-products-section.active{
+    display:block;
+}
+
+.brand-products-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.brand-product-card{
+    background:linear-gradient(145deg,#151515,#222);
+    border-radius:25px;
+    padding:30px;
+    transition:0.4s;
+}
+
+.brand-product-card:hover{
+    transform:translateY(-10px);
+}
+
+.brand-product-card img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    border-radius:15px;
+    margin-bottom:20px;
+}
+
+.brand-product-card h3{
+    margin-bottom:10px;
+}
+
+.brand-product-card p{
+    color:#b5b5b5;
+    margin-bottom:15px;
+}
+
+.contact{
+    padding:100px 8%;
+    background:#111;
+}
+
+.contact-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+    align-items:start;
+}
+
+.contact-info,
+.contact-form{
+    background:#1a1a1a;
+    padding:35px;
+    border-radius:22px;
+}
+
+.contact-info p{
+    color:#bbb;
+    margin:15px 0;
+    line-height:1.7;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select{
+    width:100%;
+    margin-bottom:15px;
+    padding:15px 18px;
+    border:none;
+    border-radius:15px;
+    background:#0d0d0d;
+    color:#fff;
+    outline:none;
+    font-family:'Poppins',sans-serif;
+}
+
+.contact-form textarea{
+    min-height:130px;
+    resize:none;
+}
+
+.success-message{
+    display:none;
+    background:#123d24;
+    border:1px solid #2e9f55;
+    color:#d7ffe3;
+    padding:14px;
+    border-radius:14px;
+    margin-top:15px;
+}
+
+@media(max-width:600px){
+    .cart-panel{
+        width:100%;
+    }
+}
+
+
+/* CHECKOUT + PAYMENT */
+
+.checkout-modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.85);
+    z-index:5000;
+    padding:40px 8%;
+    overflow-y:auto;
+}
+
+.checkout-modal.active{
+    display:block;
+}
+
+.checkout-box{
+    max-width:720px;
+    margin:40px auto;
+    background:#151515;
+    border-radius:25px;
+    padding:35px;
+    position:relative;
+}
+
+.close-checkout{
+    position:absolute;
+    top:20px;
+    right:20px;
+    background:#333;
+    color:#fff;
+    border:none;
+    padding:10px 15px;
+    border-radius:50%;
+    cursor:pointer;
+}
+
+.checkout-box input,
+.checkout-box textarea{
+    width:100%;
+    margin-bottom:15px;
+    padding:15px 18px;
+    border:none;
+    border-radius:15px;
+    background:#0d0d0d;
+    color:#fff;
+    outline:none;
+    font-family:'Poppins',sans-serif;
+}
+
+.payment-options{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:15px;
+    margin:20px 0;
+}
+
+.payment-option{
+    background:#222;
+    border:2px solid transparent;
+    padding:18px;
+    border-radius:18px;
+    cursor:pointer;
+    text-align:center;
+}
+
+.payment-option.active{
+    border-color:#fff;
+    background:#333;
+}
+
+.card-fields{
+    display:none;
+}
+
+.card-fields.active{
+    display:block;
+}
+
+.order-summary{
+    background:#222;
+    border-radius:18px;
+    padding:20px;
+    margin:20px 0;
+}
+
+.order-success{
+    display:none;
+    background:#123d24;
+    border:1px solid #2e9f55;
+    color:#d7ffe3;
+    padding:18px;
+    border-radius:18px;
+    margin-top:20px;
+}
+
+
+/* FULL RESPONSIVE DESIGN */
+
+.menu-toggle{
+    display:none;
+    background:#222;
+    color:#fff;
+    border:1px solid rgba(255,255,255,0.15);
+    padding:10px 15px;
+    border-radius:10px;
+    font-size:24px;
+    cursor:pointer;
+}
+
+img{
+    max-width:100%;
+}
+
+@media(max-width:1100px){
+    .hero-text h1{
+        font-size:58px;
+    }
+
+    .hero-image img{
+        width:430px;
+    }
+}
+
+@media(max-width:980px){
+    nav{
+        padding:16px 6%;
+    }
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .nav-shop-btn{
+        display:none;
+    }
+
+    nav ul{
+        position:absolute;
+        top:72px;
+        left:6%;
+        right:6%;
+        display:none;
+        flex-direction:column;
+        gap:0;
+        background:#151515;
+        border:1px solid rgba(255,255,255,0.08);
+        border-radius:18px;
+        overflow:hidden;
+        box-shadow:0 15px 35px rgba(0,0,0,0.45);
+    }
+
+    nav ul.active{
+        display:flex;
+    }
+
+    nav ul li a{
+        display:block;
+        padding:16px 22px;
+        border-bottom:1px solid rgba(255,255,255,0.06);
+    }
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+        gap:40px;
+        padding:120px 6% 70px;
+    }
+
+    .hero-text h1{
+        font-size:52px;
+    }
+
+    .hero-image img{
+        width:100%;
+        max-width:430px;
+    }
+
+    .stats,
+    .collections,
+    .features,
+    .brands,
+    .reviews,
+    .faq,
+    .contact{
+        padding-left:6%;
+        padding-right:6%;
+    }
+
+    .discount-section,
+    .newsletter{
+        margin-left:6%;
+        margin-right:6%;
+    }
+}
+
+@media(max-width:768px){
+    .logo{
+        font-size:23px;
+    }
+
+    .hero-text h1{
+        font-size:42px;
+    }
+
+    .hero-text p{
+        font-size:15px;
+    }
+
+    .section-title h2{
+        font-size:34px;
+    }
+
+    .discount-section{
+        padding:80px 25px;
+    }
+
+    .discount-content h1{
+        font-size:36px;
+    }
+
+    .newsletter{
+        padding:45px 22px;
+    }
+
+    .newsletter h2{
+        font-size:32px;
+    }
+
+    .newsletter input{
+        width:100%;
+    }
+
+    .newsletter form{
+        flex-direction:column;
+    }
+
+    .newsletter form .btn{
+        width:100%;
+    }
+
+    .contact-container{
+        grid-template-columns:1fr;
+    }
+
+    .checkout-modal{
+        padding:20px 4%;
+    }
+
+    .checkout-box{
+        padding:28px 20px;
+        margin:20px auto;
+    }
+
+    .payment-options{
+        grid-template-columns:1fr;
+    }
+
+    .cart-panel{
+        width:100%;
+        right:-100%;
+    }
+}
+
+@media(max-width:520px){
+    nav{
+        padding:14px 5%;
+    }
+
+    .hero{
+        padding:105px 5% 55px;
+    }
+
+    .hero-text h1{
+        font-size:34px;
+    }
+
+    .hero-text p{
+        line-height:1.6;
+    }
+
+    .btn{
+        width:100%;
+        padding:13px 20px;
+    }
+
+    .menu-toggle{
+        width:auto;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+        padding:55px 5%;
+    }
+
+    .stat-box{
+        padding:28px;
+    }
+
+    .stat-box h2{
+        font-size:34px;
+    }
+
+    .collections,
+    .features,
+    .brands,
+    .reviews,
+    .faq,
+    .contact{
+        padding:70px 5%;
+    }
+
+    .cards,
+    .features,
+    .review-grid,
+    .brand-container,
+    .brand-products-grid{
+        grid-template-columns:1fr;
+    }
+
+    .card,
+    .feature-box,
+    .review-card,
+    .faq-box,
+    .contact-info,
+    .contact-form{
+        padding:24px;
+    }
+
+    .card img,
+    .brand-product-card img{
+        height:220px;
+    }
+
+    .section-title{
+        margin-bottom:42px;
+    }
+
+    .section-title h2{
+        font-size:28px;
+    }
+
+    .discount-section{
+        margin:70px 5%;
+        padding:65px 20px;
+        border-radius:22px;
+    }
+
+    .discount-content h1{
+        font-size:30px;
+    }
+
+    .newsletter{
+        margin:70px 5%;
+        border-radius:22px;
+    }
+
+    .cart-button{
+        right:15px;
+        bottom:15px;
+        padding:12px 18px;
+        width:auto;
+    }
+
+    footer{
+        font-size:13px;
+        padding:30px 5%;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo">
+        LUXE<span>WATCH</span>
+    </div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#collections">Collections</a></li>
+        <li><a href="#brands">Brands</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <button class="btn nav-shop-btn">Shop Now</button>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-text">
+
+        <h1>Timeless Luxury Watches</h1>
+
+        <p>
+            Discover elite craftsmanship and iconic premium watches designed
+            for those who value elegance and prestige.
+        </p>
+
+        <button class="btn">Explore Collection</button>
+
+    </div>
+
+    <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=1200&auto=format&fit=crop" alt="">
+    </div>
+
+</section>
+
+<!-- STATS -->
+
+<section class="stats">
+
+    <div class="stat-box">
+        <h2>15K+</h2>
+        <p>Happy Customers</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>250+</h2>
+        <p>Luxury Watches</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>50+</h2>
+        <p>Premium Brands</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>24/7</h2>
+        <p>Support</p>
+    </div>
+
+</section>
+
+<!-- FEATURED COLLECTION -->
+
+<section class="collections" id="collections">
+
+    <div class="section-title">
+        <h2>Featured Collection</h2>
+        <p>Luxury crafted for perfection</p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=1200&auto=format&fit=crop">
+            <h3>Royal Black</h3>
+            <p>Elegant black stainless steel luxury watch.</p>
+            <div class="price">$2,499</div>
+            <button class="btn add-cart" data-name="Royal Black" data-price="2499">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?q=80&w=1200&auto=format&fit=crop">
+            <h3>Silver Edge</h3>
+            <p>Modern grey premium watch with sapphire glass.</p>
+            <div class="price">$3,199</div>
+            <button class="btn add-cart" data-name="Silver Edge" data-price="3199">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1511385348-a52b4a160dc2?q=80&w=1200&auto=format&fit=crop">
+            <h3>Midnight X</h3>
+            <p>Luxury automatic watch built for excellence.</p>
+            <div class="price">$4,899</div>
+            <button class="btn add-cart" data-name="Midnight X" data-price="4899">Add to Cart</button>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- NEW ARRIVALS -->
+
+<section class="collections">
+
+    <div class="section-title">
+        <h2>New Arrivals</h2>
+        <p>Latest luxury watches this season</p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <span class="badge">NEW</span>
+            <img src="https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?q=80&w=1200&auto=format&fit=crop">
+            <h3>Obsidian Elite</h3>
+            <p>Premium black titanium luxury watch.</p>
+            <div class="price">$5,499</div>
+            <button class="btn add-cart" data-name="Obsidian Elite" data-price="5499">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <span class="badge">HOT</span>
+            <img src="https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?q=80&w=1200&auto=format&fit=crop">
+            <h3>Silver Phantom</h3>
+            <p>Elegant silver automatic chronograph.</p>
+            <div class="price">$4,299</div>
+            <button class="btn add-cart" data-name="Silver Phantom" data-price="4299">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <span class="badge">LIMITED</span>
+            <img src="https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?q=80&w=1200&auto=format&fit=crop">
+            <h3>Dark Emperor</h3>
+            <p>Exclusive luxury edition crafted in steel.</p>
+            <div class="price">$7,999</div>
+            <button class="btn add-cart" data-name="Dark Emperor" data-price="7999">Add to Cart</button>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="features">
+
+    <div class="feature-box">
+        <h3>Swiss Precision</h3>
+        <p>Exceptional movement engineering with unmatched accuracy.</p>
+    </div>
+
+    <div class="feature-box">
+        <h3>Premium Materials</h3>
+        <p>Crafted using sapphire crystal and stainless steel finishes.</p>
+    </div>
+
+    <div class="feature-box">
+        <h3>Worldwide Shipping</h3>
+        <p>Fast and secure delivery available across the globe.</p>
+    </div>
+
+</section>
+
+<!-- DISCOUNT -->
+
+<section class="discount-section">
+
+    <div class="discount-content">
+
+        <h1>Luxury Sale Up To 40% Off</h1>
+
+        <p>
+            Exclusive deals on selected premium watches.
+            Limited stock available for luxury collectors.
+        </p>
+
+        <button class="btn">Shop Deals</button>
+
+    </div>
+
+</section>
+
+<!-- BRANDS -->
+
+<section class="brands" id="brands">
+
+    <div class="section-title">
+        <h2>Top Luxury Brands</h2>
+        <p>World class craftsmanship & prestige</p>
+    </div>
+
+    <div class="brand-container">
+        <div class="brand-box" data-brand="ROLEX">ROLEX</div>
+        <div class="brand-box" data-brand="OMEGA">OMEGA</div>
+        <div class="brand-box" data-brand="TAG HEUER">TAG HEUER</div>
+        <div class="brand-box" data-brand="PATEK">PATEK</div>
+        <div class="brand-box" data-brand="CARTIER">CARTIER</div>
+
+
+    </div>
+
+</section>
+
+
+<!-- BRAND PRODUCTS -->
+
+<section class="brand-products-section" id="brandProductsSection">
+
+    <div class="section-title">
+        <h2 id="brandProductsTitle">Brand Watches</h2>
+        <p id="brandProductsSubtitle">Choose a brand above to view its watches</p>
+    </div>
+
+    <div class="brand-products-grid" id="brandProductsGrid"></div>
+
+</section>
+
+<!-- REVIEWS -->
+
+<section class="reviews" id="reviews">
+
+    <div class="section-title">
+        <h2>Customer Reviews</h2>
+        <p>Trusted worldwide</p>
+    </div>
+
+    <div class="review-grid">
+
+        <div class="review-card">
+            <h3>⭐⭐⭐⭐⭐</h3>
+            <p>Absolutely premium quality and elegant packaging.</p>
+            <span>- James Carter</span>
+        </div>
+
+        <div class="review-card">
+            <h3>⭐⭐⭐⭐⭐</h3>
+            <p>Best premium watch collection I’ve ever seen online.</p>
+            <span>- Michael Ross</span>
+        </div>
+
+        <div class="review-card">
+            <h3>⭐⭐⭐⭐⭐</h3>
+            <p>Luxury experience from ordering to delivery.</p>
+            <span>- Daniel Cooper</span>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FAQ -->
+
+<section class="faq">
+
+    <div class="section-title">
+        <h2>Frequently Asked Questions</h2>
+        <p>Everything you need to know</p>
+    </div>
+
+    <div class="faq-container">
+
+        <div class="faq-box">
+            <h3>Do you offer international shipping?</h3>
+            <p>Yes, we ship worldwide securely.</p>
+        </div>
+
+        <div class="faq-box">
+            <h3>Are the watches authentic?</h3>
+            <p>All watches are 100% authentic.</p>
+        </div>
+
+        <div class="faq-box">
+            <h3>Do you provide warranty?</h3>
+            <p>Yes, every watch includes official warranty support.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- NEWSLETTER -->
+
+<section class="newsletter">
+
+    <h2>Join The Luxury Club</h2>
+
+    <p>
+        Get exclusive access to premium collections and limited editions.
+    </p>
+
+    <form id="newsletterForm">
+        <input type="email" id="newsletterEmail" placeholder="Enter your email">
+        <button class="btn">Subscribe</button>
+    </form>
+    <div class="success-message" id="newsletterSuccess">Thank you for subscribing!</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+    <div class="section-title">
+        <h2>Contact Customer Support</h2>
+        <p>Send your details and our team will contact you</p>
+    </div>
+
+    <div class="contact-container">
+
+        <div class="contact-info">
+            <h3>LuxeWatch Support</h3>
+            <p><strong>Phone:</strong> +1 800 555 0199</p>
+            <p><strong>Email:</strong> support@luxewatch.com</p>
+            <p><strong>Address:</strong> 25 Luxury Avenue, New York, USA</p>
+            <p><strong>Support Hours:</strong> Monday - Saturday, 9:00 AM - 8:00 PM</p>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+            <input type="text" id="customerName" placeholder="Your Name" required>
+            <input type="tel" id="customerPhone" placeholder="Phone Number" required>
+            <input type="email" id="customerEmail" placeholder="Email Address" required>
+
+            <select id="customerReason" required>
+                <option value="">Select Reason</option>
+                <option value="Product Inquiry">Product Inquiry</option>
+                <option value="Order Support">Order Support</option>
+                <option value="Warranty">Warranty</option>
+                <option value="Shipping">Shipping</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <textarea id="customerMessage" placeholder="Write your message"></textarea>
+
+            <button class="btn" type="submit">Submit Contact</button>
+
+            <div class="success-message" id="contactSuccess">
+                Your contact details have been submitted successfully.
+            </div>
+        </form>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+
+<button class="cart-button" id="cartButton">Cart (<span id="cartCount">0</span>)</button>
+
+<div class="cart-panel" id="cartPanel">
+    <button class="close-cart" id="closeCart">×</button>
+    <h2>Your Cart</h2>
+    <div id="cartItems"></div>
+    <div class="cart-total">Total: $<span id="cartTotal">0</span></div>
+    <button class="btn" id="checkoutBtn">Checkout</button>
+</div>
+
+<footer>
+    © 2026 LuxeWatch — Premium Watch Store. All Rights Reserved. | www.luxewatch.com
+</footer>
+<div class="checkout-modal" id="checkoutModal">
+    <div class="checkout-box">
+        <button class="close-checkout" id="closeCheckout">×</button>
+
+        <h2>Checkout</h2>
+        <p style="color:#aaa; margin:10px 0 25px;">Complete your order details below. After placing the order, a confirmation email draft will open for the customer email.</p>
+
+        <div class="order-summary">
+            <h3>Order Summary</h3>
+            <div id="checkoutItems"></div>
+            <p style="margin-top:15px;"><strong>Total:</strong> $<span id="checkoutTotal">0</span></p>
+        </div>
+
+        <form id="checkoutForm">
+            <input type="text" id="checkoutName" placeholder="Full Name" required>
+            <input type="tel" id="checkoutPhone" placeholder="Phone Number" required>
+            <input type="email" id="checkoutEmail" placeholder="Email Address" required>
+            <textarea id="checkoutAddress" placeholder="Complete Delivery Address" required></textarea>
+
+            <h3>Payment Method</h3>
+
+            <div class="payment-options">
+                <div class="payment-option active" data-payment="Cash on Delivery">Cash on Delivery</div>
+                <div class="payment-option" data-payment="Card Payment">Card Payment</div>
+            </div>
+
+            <input type="hidden" id="paymentMethod" value="Cash on Delivery">
+
+            <div class="card-fields" id="cardFields">
+                <input type="text" id="cardName" placeholder="Name on Card">
+                <input type="text" id="cardNumber" placeholder="Card Number e.g. 4242 4242 4242 4242">
+                <input type="text" id="cardExpiry" placeholder="Expiry Date MM/YY">
+                <input type="text" id="cardCvv" placeholder="CVV e.g. 123">
+            </div>
+
+            <button class="btn" type="submit">Place Order</button>
+
+            <div class="order-success" id="orderSuccess">
+                Order created successfully! Thank you for shopping with LuxeWatch.
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script>
+const cart = [];
+
+const brandData = {
+    "ROLEX": [
+        { name: "Rolex Submariner", description: "Luxury diving watch with classic black dial.", price: 12500, image: "https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=1200&auto=format&fit=crop" },
+        { name: "Rolex Datejust", description: "Elegant automatic watch for formal style.", price: 10800, image: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?q=80&w=1200&auto=format&fit=crop" },
+        { name: "Rolex Daytona", description: "Iconic chronograph built for collectors.", price: 18900, image: "https://images.unsplash.com/photo-1511385348-a52b4a160dc2?q=80&w=1200&auto=format&fit=crop" }
+    ],
+    "OMEGA": [
+        { name: "Omega Seamaster", description: "Premium ocean-inspired Swiss watch.", price: 6300, image: "https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?q=80&w=1200&auto=format&fit=crop" },
+        { name: "Omega Speedmaster", description: "Legendary chronograph with sporty design.", price: 7200, image: "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?q=80&w=1200&auto=format&fit=crop" },
+        { name: "Omega Constellation", description: "Elegant dress watch with luxury finish.", price: 5900, image: "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?q=80&w=1200&auto=format&fit=crop" }
+    ],
+    "TAG HEUER": [
+        { name: "TAG Heuer Carrera", description: "Motorsport-inspired luxury chronograph.", price: 4800, image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=1200&auto=format&fit=crop" },
+        { name: "TAG Heuer Monaco", description: "Square-case racing icon with bold style.", price: 6100, image: "https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=1200&auto=format&fit=crop" },
+        { name: "TAG Heuer Aquaracer", description: "Sporty waterproof luxury watch.", price: 3500, image: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?q=80&w=1200&auto=format&fit=crop" }
+    ],
+    "PATEK": [
+        { name: "Patek Philippe Nautilus", description: "Ultra-premium collector luxury watch.", price: 75000, image: "https://images.unsplash.com/photo-1511385348-a52b4a160dc2?q=80&w=1200&auto=format&fit=crop" },
+        { name: "Patek Philippe Calatrava", description: "Classic dress watch with refined finish.", price: 34000, image: "https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?q=80&w=1200&auto=format&fit=crop" },
+        { name: "Patek Philippe Aquanaut", description: "Modern luxury sports watch.", price: 58000, image: "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?q=80&w=1200&auto=format&fit=crop" }
+    ],
+    "CARTIER": [
+        { name: "Cartier Santos", description: "Elegant square watch with iconic bracelet.", price: 8200, image: "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?q=80&w=1200&auto=format&fit=crop" },
+        { name: "Cartier Tank", description: "Classic rectangular luxury dress watch.", price: 6700, image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=1200&auto=format&fit=crop" },
+        { name: "Cartier Ballon Bleu", description: "Premium rounded luxury watch design.", price: 9100, image: "https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=1200&auto=format&fit=crop" }
+    ]
+};
+
+function addToCart(name, price) {
+    cart.push({ name, price });
+    updateCart();
+    alert(name + " added to cart");
+}
+
+function updateCart() {
+    const cartItems = document.getElementById("cartItems");
+    const cartCount = document.getElementById("cartCount");
+    const cartTotal = document.getElementById("cartTotal");
+    cartItems.innerHTML = "";
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        total += item.price;
+        cartItems.innerHTML += `
+            <div class="cart-item">
+                <h4>${item.name}</h4>
+                <p>$${item.price.toLocaleString()}</p>
+                <button class="btn" onclick="removeCartItem(${index})">Remove</button>
+            </div>`;
+    });
+
+    cartCount.textContent = cart.length;
+    cartTotal.textContent = total.toLocaleString();
+}
+
+function removeCartItem(index) {
+    cart.splice(index, 1);
+    updateCart();
+}
+
+function openCheckout() {
+    const checkoutItems = document.getElementById("checkoutItems");
+    const checkoutTotal = document.getElementById("checkoutTotal");
+    checkoutItems.innerHTML = "";
+    let total = 0;
+
+    cart.forEach(item => {
+        total += item.price;
+        checkoutItems.innerHTML += `<p>${item.name} - $${item.price.toLocaleString()}</p>`;
+    });
+
+    checkoutTotal.textContent = total.toLocaleString();
+    document.getElementById("checkoutModal").classList.add("active");
+}
+
+function showBrandWatches(brand) {
+    const products = brandData[brand];
+    const section = document.getElementById("brandProductsSection");
+    const title = document.getElementById("brandProductsTitle");
+    const subtitle = document.getElementById("brandProductsSubtitle");
+    const grid = document.getElementById("brandProductsGrid");
+
+    title.textContent = brand + " Watches";
+    subtitle.textContent = "Showing branded watches for " + brand;
+    grid.innerHTML = "";
+
+    products.forEach(product => {
+        grid.innerHTML += `
+            <div class="brand-product-card">
+                <img src="${product.image}" alt="${product.name}">
+                <h3>${product.name}</h3>
+                <p>${product.description}</p>
+                <div class="price">$${product.price.toLocaleString()}</div>
+                <button class="btn" onclick="addToCart('${product.name.replace(/'/g, "\\'")}', ${product.price})">Add to Cart</button>
+            </div>`;
+    });
+
+    document.querySelectorAll(".brand-box").forEach(box => box.classList.remove("active"));
+    document.querySelector(`.brand-box[data-brand="${brand}"]`).classList.add("active");
+    section.classList.add("active");
+    section.scrollIntoView({ behavior: "smooth" });
+}
+
+document.querySelectorAll(".add-cart").forEach(button => {
+    button.addEventListener("click", () => addToCart(button.dataset.name, Number(button.dataset.price)));
+});
+
+document.querySelectorAll(".brand-box").forEach(box => {
+    box.addEventListener("click", () => showBrandWatches(box.dataset.brand));
+});
+
+document.getElementById("cartButton").addEventListener("click", () => {
+    document.getElementById("cartPanel").classList.add("active");
+});
+
+document.getElementById("closeCart").addEventListener("click", () => {
+    document.getElementById("cartPanel").classList.remove("active");
+});
+
+document.getElementById("checkoutBtn").addEventListener("click", () => {
+    if (cart.length === 0) {
+        alert("Your cart is empty");
+        return;
+    }
+    openCheckout();
+});
+
+document.getElementById("closeCheckout").addEventListener("click", () => {
+    document.getElementById("checkoutModal").classList.remove("active");
+});
+
+document.querySelectorAll(".payment-option").forEach(option => {
+    option.addEventListener("click", () => {
+        document.querySelectorAll(".payment-option").forEach(item => item.classList.remove("active"));
+        option.classList.add("active");
+        const method = option.dataset.payment;
+        document.getElementById("paymentMethod").value = method;
+        document.getElementById("cardFields").classList.toggle("active", method === "Card Payment");
+    });
+});
+
+document.getElementById("checkoutForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const customerName = document.getElementById("checkoutName").value.trim();
+    const customerPhone = document.getElementById("checkoutPhone").value.trim();
+    const customerEmail = document.getElementById("checkoutEmail").value.trim();
+    const customerAddress = document.getElementById("checkoutAddress").value.trim();
+    const paymentMethod = document.getElementById("paymentMethod").value;
+
+    if (!customerName || !customerPhone || !customerEmail || !customerAddress) {
+        alert("Please fill name, phone, email, and address.");
+        return;
+    }
+
+    if (paymentMethod === "Card Payment") {
+        const cardName = document.getElementById("cardName").value.trim();
+        const cardNumber = document.getElementById("cardNumber").value.trim();
+        const cardExpiry = document.getElementById("cardExpiry").value.trim();
+        const cardCvv = document.getElementById("cardCvv").value.trim();
+
+        if (!cardName || !cardNumber || !cardExpiry || !cardCvv) {
+            alert("Please fill all card payment details.");
+            return;
+        }
+
+        if (cardNumber.replace(/\s/g, "").length < 12) {
+            alert("Please enter a valid card number.");
+            return;
+        }
+    }
+
+    const total = cart.reduce((sum, item) => sum + item.price, 0);
+    const orderData = {
+        customerName,
+        email: customerEmail,
+        phone: customerPhone,
+        address: customerAddress,
+        items: cart,
+        totalAmount: total,
+        paymentMethod: paymentMethod === "Card Payment" ? "CARD" : "COD"
+    };
+
+    // Online version: save order to Supabase so it works on mobile and PC
+    const orderId = "LW-" + Date.now();
+
+    const order = {
+        customerName: customerName,
+        email: customerEmail,
+        phone: customerPhone,
+        address: customerAddress,
+        totalAmount: total,
+        paymentMethod: paymentMethod === "Card Payment" ? "CARD" : "COD",
+        paymentStatus: paymentMethod === "Card Payment" ? "Paid Demo" : "Pending COD"
+    };
+
+    try {
+        const response = await fetch("https://ildpewisjeilzdiluwlq.supabase.co/rest/v1/orders", {
+            method: "POST",
+            headers: {
+                "apikey": "sb_publishable_E9Pl5ZId-jnlkYJBT1_S5Q_UlEByFjq",
+                "Authorization": "Bearer sb_publishable_E9Pl5ZId-jnlkYJBT1_S5Q_UlEByFjq",
+                "Content-Type": "application/json",
+                "Prefer": "return=representation"
+            },
+            body: JSON.stringify(order)
+        });
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            console.error(errorText);
+            alert("Order failed to save. Check Supabase columns and RLS settings.");
+            return;
+        }
+
+        const savedOrder = await response.json();
+        console.log("Saved order:", savedOrder);
+
+        localStorage.setItem("lastOrder", JSON.stringify({
+            orderId: orderId,
+            ...order,
+            items: [...cart],
+            createdAt: new Date().toLocaleString()
+        }));
+
+        cart.length = 0;
+        updateCart();
+
+        const success = document.getElementById("orderSuccess");
+        success.style.display = "block";
+        success.innerHTML = "✅ Order created successfully! Your Order ID is " + orderId;
+
+        setTimeout(() => {
+            document.getElementById("checkoutModal").classList.remove("active");
+            document.getElementById("cartPanel").classList.remove("active");
+            success.style.display = "none";
+            this.reset();
+            document.getElementById("cardFields").classList.remove("active");
+            document.getElementById("paymentMethod").value = "Cash on Delivery";
+            document.querySelectorAll(".payment-option").forEach(item => item.classList.remove("active"));
+            document.querySelector('.payment-option[data-payment="Cash on Delivery"]').classList.add("active");
+            alert("Order created successfully! Order saved online.");
+        }, 1500);
+
+    } catch (error) {
+        console.error(error);
+        alert("Order failed to save. Please check your internet connection.");
+    }
+});
+
+document.getElementById("newsletterForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const email = document.getElementById("newsletterEmail").value.trim();
+    if (email === "") {
+        alert("Please enter your email");
+        return;
+    }
+    document.getElementById("newsletterSuccess").style.display = "block";
+    this.reset();
+});
+
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const name = document.getElementById("customerName").value.trim();
+    const phone = document.getElementById("customerPhone").value.trim();
+    const email = document.getElementById("customerEmail").value.trim();
+    const reason = document.getElementById("customerReason").value;
+
+    if (!name || !phone || !email || !reason) {
+        alert("Please fill name, phone, email, and reason.");
+        return;
+    }
+
+    localStorage.setItem("lastCustomerContact", JSON.stringify({
+        name,
+        phone,
+        email,
+        reason,
+        message: document.getElementById("customerMessage").value.trim()
+    }));
+
+    document.getElementById("contactSuccess").style.display = "block";
+    this.reset();
+});
+</script>
+
+
+<script>
+const menuToggleButton = document.getElementById("menuToggle");
+const navbarMenu = document.querySelector("nav ul");
+
+if (menuToggleButton && navbarMenu) {
+    menuToggleButton.addEventListener("click", function() {
+        navbarMenu.classList.toggle("active");
+    });
+
+    document.querySelectorAll("nav ul li a").forEach(link => {
+        link.addEventListener("click", function() {
+            navbarMenu.classList.remove("active");
+        });
+    });
+}
+</script>
+
+</body>
+</html>
